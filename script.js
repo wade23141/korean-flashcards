@@ -1,209 +1,208 @@
-// =================================================================
-// 您的單字資料庫
-// =================================================================
-const wordData = {
-    // 第 1 課
-    1: [
-        { korean: "전공하다", hanja: "專攻하다", chinese: "主修(v.)" },
-        { korean: "글씨", hanja: "", chinese: "字" },
-        { korean: "꿈", hanja: "", chinese: "夢" },
-        { korean: "변호사", hanja: "辯護士", chinese: "律師" },
-        { korean: "지점", hanja: "支店", chinese: "分店" },
-        { korean: "어느새", hanja: "", chinese: "不知不覺" },
-        { korean: "단어", hanja: "單語", chinese: "單字" },
-        { korean: "부탁드리다", hanja: "付託드리다", chinese: "拜託、懇託" },
-        { korean: "여행사를 차리다", hanja: "旅行社를 차리다", chinese: "開設旅行社" },
-        { korean: "정치외교 학과", hanja: "政治外交學科", chinese: "政治外交學系" },
-    ],
-    // 第 2 課
-    2: [
-        { korean: "주로", hanja: "主로", chinese: "主要" },
-        { korean: "산꼭대기", hanja: "山꼭대기", chinese: "山頂" },
-        { korean: "연주하다", hanja: "演奏하다", chinese: "演奏(v.)" },
-        { korean: "건강에 좋다", hanja: "健康에 좋다", chinese: "有益健康" },
-        { korean: "전혀 안", hanja: "全혀 안", chinese: "完全不..." },
-        { korean: "선수", hanja: "選手", chinese: "選手" },
-        { korean: "느끼다", hanja: "", chinese: "感覺(v.)" },
-        { korean: "언제나", hanja: "", chinese: "無論何時" },
-        { korean: "즐겁다", hanja: "", chinese: "愉快的" },
-    ],
-    // 第 3 課
-    3: [
-        { korean: "굉장히", hanja: "宏壯히", chinese: "非常" },
-        { korean: "옷이 젖다", hanja: "", chinese: "衣服弄濕" },
-        { korean: "손이 시리다", hanja: "手이 시리다", chinese: "手冰冷" },
-        { korean: "나들이를 하다", hanja: "", chinese: "出門走走" },
-        { korean: "날이 개다", hanja: "", chinese: "放晴" },
-        { korean: "건조하다", hanja: "乾燥하다", chinese: "乾燥的" },
-        { korean: "얇다", hanja: "", chinese: "薄的" },
-        { korean: "두껍다", hanja: "", chinese: "厚的" },
-        { korean: "대체로", hanja: "大致로", chinese: "大致上" },
-    ],
-    // 第 4 課
-    4: [
-        { korean: "싱싱하다", hanja: "", chinese: "新鮮的" },
-        { korean: "유행이다", hanja: "流行이다", chinese: "是流行的" },
-        { korean: "어울리다", hanja: "", chinese: "合適" },
-        { korean: "넓다", hanja: "", chinese: "寬的" },
-        { korean: "연하다", hanja: "軟하나", chinese: "淺的" },
-        { korean: "진하다", hanja: "津하나", chinese: "深的" },
-        { korean: "즐겨 입다", hanja: "", chinese: "喜歡穿" },
-        { korean: "직접", hanja: "直接", chinese: "親自" },
-        { korean: "잘 나가다", hanja: "", chinese: "賣得好" },
-        { korean: "이/가 붙다", hanja: "", chinese: "貼身" },
-    ],
-    // 第 5 課
-    5: [
-        { korean: "횡단보도", hanja: "橫斷步道", chinese: "斑馬線" },
-        { korean: "쭉 가다", hanja: "", chinese: "直走" },
-        { korean: "지나다", hanja: "", chinese: "經過" },
-        { korean: "휴게실", hanja: "休憩室", chinese: "休息室" },
-        { korean: "우회전하다", hanja: "右回轉하다", chinese: "右轉" },
-        { korean: "무엇보다도", hanja: "", chinese: "尤其是" },
-        { korean: "요금", hanja: "料金", chinese: "費用" },
-        { korean: "골목", hanja: "", chinese: "巷子" },
-        { korean: "누르다", hanja: "", chinese: "按、壓" },
-        { korean: "생각나다", hanja: "", chinese: "想起" },
-    ],
-    // 第 6 課
-    6: [
-        { korean: "계속", hanja: "繼續", chinese: "繼續" },
-        { korean: "새롭다", hanja: "", chinese: "新的" },
-        { korean: "한가하다", hanja: "閑暇하다", chinese: "閒暇的" },
-        { korean: "회사를 옮기다", hanja: "會社를 옮기다", chinese: "換公司" },
-        { korean: "봉사 활동", hanja: "奉仕 活動", chinese: "服務活動" },
-        { korean: "볼일", hanja: "", chinese: "要做的事" },
-        { korean: "웬일이야?", hanja: "", chinese: "怎麼回事？" },
-        { korean: "메시지를 남기다", hanja: "message를 남기다", chinese: "留訊息" },
-        { korean: "드디어", hanja: "", chinese: "終於" },
-        { korean: "신나다", hanja: "", chinese: "興奮" },
-    ],
-    // 第 7 課
-    7: [
-        { korean: "닮다", hanja: "", chinese: "像(v.)" },
-        { korean: "최선을 다하다", hanja: "最善을 다하다", chinese: "盡力而為" },
-        { korean: "첫 번째", hanja: "첫 番째", chinese: "第一次" },
-        { korean: "마르다", hanja: "", chinese: "消瘦的" },
-        { korean: "벗다", hanja: "", chinese: "脫" },
-        { korean: "가방을 메다", hanja: "", chinese: "背背包" },
-        { korean: "평소", hanja: "平素", chinese: "平常" },
-        { korean: "알아듣다", hanja: "", chinese: "聽懂" },
-        { korean: "알아보다", hanja: "", chinese: "認出" },
-        { korean: "가늘다", hanja: "", chinese: "細的" },
-    ],
-};
-
-// =================================================================
-// 測驗邏輯
-// =================================================================
-let currentWords = []; // 當前選擇課程的單字列表
-let currentIndex = 0;
-let currentLesson = 1;
-
-// 元素選擇
-const lessonSelect = document.getElementById('lesson-select');
-const startButton = document.getElementById('start-quiz-btn');
-const flashcard = document.getElementById('flashcard');
-const prevButton = document.getElementById('prev-btn');
-const nextButton = document.getElementById('next-btn');
-const koreanDisplay = document.getElementById('korean-word');
-const chineseDisplay = document.getElementById('chinese-translation');
-const hanjaDisplay = document.getElementById('hanja-translation');
-const currentIndexDisplay = document.getElementById('current-index');
-const totalWordsDisplay = document.getElementById('total-words');
-const currentLessonDisplay = document.getElementById('current-lesson');
-const quizMessage = document.getElementById('quiz-message');
-
-// 初始化課程選單
-function initializeLessonSelect() {
-    for (let i = 1; i <= 7; i++) {
-        const option = document.createElement('option');
-        option.value = i;
-        option.textContent = `第 ${i} 課`;
-        lessonSelect.appendChild(option);
+(() => {
+  // If you want to replace with server data, change this array or provide a loader
+  const lessons = [
+    {
+      id: 1,
+      title: "��1課 基本問候",
+      words: [
+        { korean: "안녕하세요", chinese: "你好", hanja: "" },
+        { korean: "감사합니다", chinese: "謝謝", hanja: "" },
+        { korean: "미안합니다", chinese: "對不起", hanja: "" },
+        { korean: "네", chinese: "是/對", hanja: "" },
+        { korean: "아니요", chinese: "不是/不對", hanja: "" }
+      ]
+    },
+    {
+      id: 2,
+      title: "第2課 數字與時間",
+      words: [
+        { korean: "하나", chinese: "一", hanja: "一" },
+        { korean: "둘", chinese: "二", hanja: "二" },
+        { korean: "셋", chinese: "三", hanja: "三" },
+        { korean: "오늘", chinese: "今天", hanja: "今日" },
+        { korean: "어제", chinese: "昨天", hanja: "昨日" }
+      ]
+    },
+    {
+      id: 3,
+      title: "第3課 日常用語",
+      words: [
+        { korean: "사랑해요", chinese: "我愛你", hanja: "愛" },
+        { korean: "축하합니다", chinese: "恭喜", hanja: "" },
+        { korean: "잘 먹겠습니다", chinese: "我會好好享用（飯前）", hanja: "" },
+        { korean: "잘 먹었습니다", chinese: "我吃飽了（飯後）", hanja: "" }
+      ]
     }
-}
+  ];
 
-// 載入並隨機排序單字
-function loadWords() {
-    currentLesson = parseInt(lessonSelect.value);
-    currentWords = [...wordData[currentLesson]];
-    
-    // 隨機排序 (Shuffling)
-    for (let i = currentWords.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [currentWords[i], currentWords[j]] = [currentWords[j], currentWords[i]];
+  const USER_LOGIN = (typeof window !== "undefined" && window.USER_LOGIN) || "wade23141";
+  const STORAGE_KEY = `flashcard_state_${USER_LOGIN}`;
+
+  const lessonSelect = document.getElementById("lesson-select");
+  const startBtn = document.getElementById("start-quiz-btn");
+  const currentLessonEl = document.getElementById("current-lesson");
+  const currentIndexEl = document.getElementById("current-index");
+  const totalWordsEl = document.getElementById("total-words");
+  const koreanWordEl = document.getElementById("korean-word");
+  const chineseEl = document.getElementById("chinese-translation");
+  const hanjaEl = document.getElementById("hanja-translation");
+  const prevBtn = document.getElementById("prev-btn");
+  const nextBtn = document.getElementById("next-btn");
+  const flashcard = document.getElementById("flashcard");
+  const quizMessage = document.getElementById("quiz-message");
+
+  let currentLessonIdx = 0;
+  let currentIndex = 0;
+  let order = []; // holds shuffled indexes
+  let isStarted = false;
+
+  function saveState() {
+    const payload = {
+      currentLessonIdx, currentIndex, order, isStarted, timestamp: Date.now()
+    };
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload)); } catch (e) {}
+  }
+  function loadState() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const s = JSON.parse(raw);
+      if (s && typeof s === "object") {
+        currentLessonIdx = s.currentLessonIdx ?? currentLessonIdx;
+        currentIndex = s.currentIndex ?? currentIndex;
+        order = Array.isArray(s.order) && s.order.length ? s.order : [];
+        isStarted = !!s.isStarted;
+      }
+    } catch (e) {}
+  }
+
+  function populateLessons() {
+    lessonSelect.innerHTML = "";
+    lessons.forEach((ls, i) => {
+      const opt = document.createElement("option");
+      opt.value = i;
+      opt.textContent = ls.title || `第 ${ls.id} 課`;
+      lessonSelect.appendChild(opt);
+    });
+  }
+
+  function buildOrder(n) {
+    const arr = Array.from({length:n}, (_,i)=>i);
+    return arr;
+  }
+
+  function shuffleArray(a){
+    for(let i=a.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [a[i],a[j]]=[a[j],a[i]];
+    }
+    return a;
+  }
+
+  function renderCard() {
+    const lesson = lessons[currentLessonIdx];
+    if (!lesson) return;
+    const wordCount = lesson.words.length;
+    totalWordsEl.textContent = wordCount;
+    currentLessonEl.textContent = lesson.id || lesson.title || (currentLessonIdx+1);
+    if (!order || order.length !== wordCount) order = buildOrder(wordCount);
+
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex >= wordCount) currentIndex = wordCount - 1;
+
+    const idx = order[currentIndex];
+    const item = lesson.words[idx];
+    currentIndexEl.textContent = (currentIndex + 1);
+    koreanWordEl.textContent = item ? item.korean : "—";
+    chineseEl.textContent = item && item.chinese ? item.chinese : "";
+    hanjaEl.textContent = item && item.hanja ? item.hanja : "";
+
+    flashcard.classList.remove("flipped");
+
+    prevBtn.disabled = currentIndex <= 0;
+    nextBtn.disabled = currentIndex >= lesson.words.length - 1;
+
+    if (!isStarted) {
+      quizMessage.textContent = '點擊「開始測驗」以開始。';
+    } else {
+      quizMessage.textContent = '';
     }
 
+    saveState();
+  }
+
+  function startQuiz({shuffle=false} = {}) {
+    isStarted = true;
+    currentLessonIdx = parseInt(lessonSelect.value, 10) || 0;
+    const wordCount = lessons[currentLessonIdx].words.length;
+    order = buildOrder(wordCount);
+    if (shuffle) shuffleArray(order);
     currentIndex = 0;
-    updateCard();
-    quizMessage.textContent = `已載入第 ${currentLesson} 課，共 ${currentWords.length} 個單字。`;
-}
+    renderCard();
+    quizMessage.textContent = `第 ${lessons[currentLessonIdx].id} 課 — ${wordCount} 個單字，按卡片查看答案。`;
+    saveState();
+  }
 
-// 更新閃卡內容
-function updateCard() {
-    if (currentWords.length === 0) {
-        koreanDisplay.textContent = "請選擇課程並點擊開始";
-        chineseDisplay.textContent = "";
-        hanjaDisplay.textContent = "";
-        currentIndexDisplay.textContent = 0;
-        totalWordsDisplay.textContent = 0;
-        currentLessonDisplay.textContent = "N/A";
-        prevButton.disabled = true;
-        nextButton.disabled = true;
-        flashcard.classList.remove('flipped');
-        return;
-    }
+  function flipCard() {
+    flashcard.classList.toggle("flipped");
+  }
 
-    const word = currentWords[currentIndex];
-
-    // 更新進度顯示
-    currentIndexDisplay.textContent = currentIndex + 1;
-    totalWordsDisplay.textContent = currentWords.length;
-    currentLessonDisplay.textContent = currentLesson;
-
-    // 更新卡片內容
-    koreanDisplay.textContent = word.korean;
-    chineseDisplay.textContent = word.chinese;
-    // 顯示漢字，如果沒有則顯示 (無漢字)
-    hanjaDisplay.textContent = word.hanja ? `(${word.hanja})` : '(無漢字)';
-
-    // 確保卡片是正面
-    flashcard.classList.remove('flipped');
-    
-    // 更新導航按鈕狀態
-    prevButton.disabled = currentIndex === 0;
-    nextButton.disabled = currentIndex === currentWords.length - 1;
-}
-
-// 翻轉卡片
-function flipCard() {
-    if (currentWords.length > 0) {
-        flashcard.classList.toggle('flipped');
-    }
-}
-
-// 切換到上一個單字
-function goToPreviousWord() {
+  function prev() {
     if (currentIndex > 0) {
-        currentIndex--;
-        updateCard();
+      currentIndex--;
+      renderCard();
     }
-}
-
-// 切換到下一個單字
-function goToNextWord() {
-    if (currentIndex < currentWords.length - 1) {
-        currentIndex++;
-        updateCard();
+  }
+  function next() {
+    const max = lessons[currentLessonIdx].words.length - 1;
+    if (currentIndex < max) {
+      currentIndex++;
+      renderCard();
+    } else {
+      quizMessage.textContent = "已到達本課最後一題。按「重新載入」或左側選單選擇其他課。";
     }
-}
+  }
 
-// 事件監聽器
-startButton.addEventListener('click', loadWords);
-prevButton.addEventListener('click', goToPreviousWord);
-nextButton.addEventListener('click', goToNextWord);
+  function attachEvents() {
+    startBtn.addEventListener("click", () => {
+      const wantShuffle = confirm("是否要洗牌 (亂序) 單字？ 按「確定」洗牌，按「取消」維持順序。");
+      startQuiz({shuffle: wantShuffle});
+    });
 
-// 頁面啟動
-initializeLessonSelect();
-loadWords(); // 初始載入第 1 課
+    lessonSelect.addEventListener("change", () => {
+      currentLessonIdx = parseInt(lessonSelect.value, 10) || 0;
+      currentIndex = 0;
+      isStarted = false;
+      order = [];
+      renderCard();
+    });
+
+    prevBtn.addEventListener("click", (e)=> { e.stopPropagation(); prev(); });
+    nextBtn.addEventListener("click", (e)=> { e.stopPropagation(); next(); });
+    flashcard.addEventListener("click", (e) => {
+      flipCard();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") { prev(); }
+      else if (e.key === "ArrowRight") { next(); }
+      else if (e.code === "Space") { e.preventDefault(); flipCard(); }
+    });
+  }
+
+  function init() {
+    populateLessons();
+    loadState();
+    if (lessonSelect.options.length > 0) {
+      lessonSelect.value = currentLessonIdx || 0;
+    }
+    attachEvents();
+    renderCard();
+  }
+
+  window.flashcardQuiz = {
+    startQuiz, prev, next, flipCard, getState: () => ({currentLessonIdx, currentIndex, order, isStarted})
+  };
+
+  init();
+})();
