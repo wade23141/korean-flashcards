@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韓文單字測驗機 (Flashcard Quiz)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📚 韓文單字測驗機</h1>
+        <div class="quiz-controls">
+            <select id="lesson-select"></select>
+            <button id="start-quiz-btn">開始測驗 / 重新載入</button>
+        </div>
+
+        <div id="flashcard" class="card" onclick="flipCard()">
+            <div class="card-inner">
+                <div class="card-face card-front">
+                    <p class="lesson-info">第 <span id="current-lesson"></span> 課</p>
+                    <p class="word-number"><span id="current-index"></span> / <span id="total-words"></span></p>
+                    <div id="korean-word" class="word-text">點擊「開始測驗」</div>
+                    <div class="hint-text">（點擊卡片顯示答案）</div>
+                </div>
+                <div class="card-face card-back">
+                    <p class="lesson-info">中文 / 漢字</p>
+                    <div id="chinese-translation" class="word-text"></div>
+                    <div id="hanja-translation" class="hanja-text"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button id="prev-btn" disabled>上一個</button>
+            <button id="next-btn" disabled>下一個</button>
+        </div>
+        
+        <div id="quiz-message" class="message"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
